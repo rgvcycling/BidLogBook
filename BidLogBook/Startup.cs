@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using BidLogBook.Data;
 using BidLogBook.Models;
 using BidLogBook.Services;
+using BidLogBook.Repositories;
 
 namespace BidLogBook
 {
@@ -52,6 +53,7 @@ namespace BidLogBook
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddSingleton<IReadRepository, MockReadRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
