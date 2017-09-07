@@ -8,6 +8,6 @@ namespace BidLogBook.Models.BidLogViewModels
 {
     public class LogRecordViewModel
     {
-        public BidListDTO BidLog { get; set; }
+        public LogListDTO BidLog { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using BidLogBook.Models;
+using BidLogBook.Repositories;
 
 namespace BidLogBook.Controllers
 {
@@ -12,6 +13,11 @@ namespace BidLogBook.Controllers
     {
         public IActionResult Index()
         {
+            var rep = new MockReadRepository();
+            var logs = rep.GetLogsList();
+            var log = rep.GetLog(2);
+
+
             if (!_signInManager.IsSignedIn(User))
                 return RedirectToAction("Login", "Account");
 
